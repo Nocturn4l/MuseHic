@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/ic_divider"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:showDividers="middle"
+
+        >
+
+        <ImageView
+            android:id="@+id/recents"
+            style="@style/topButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_recent" />
+
+        <ImageView
+            android:id="@+id/favourite"
+            style="@style/topButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite" />
+
+        <ImageView
+            android:id="@+id/playlists"
+            style="@style/topButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_playlist" />
+
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:ellipsize="end"
+        android:orientation="vertical"
+        android:singleLine="true"
+        android:stretchMode="columnWidth"
+
+        />
+</RelativeLayout>
