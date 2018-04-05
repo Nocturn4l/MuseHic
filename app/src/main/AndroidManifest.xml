@@ -21,8 +21,12 @@
         <activity
             android:name=".PlayerActivity"
             android:label="MuseHic Player"
+            android:parentActivityName=".RecentActivity"
             android:screenOrientation="portrait" />
 
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".RecentActivity" />
         <activity
             android:name=".FavourActivity"
             android:label="Favourites" />

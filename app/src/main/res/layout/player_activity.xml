@@ -7,12 +7,22 @@
     android:orientation="vertical"
     tools:context="com.example.dovah.muse_hic.RecentActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/player_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#ffffff" />
 
     <ImageView
         android:id="@+id/album_playing"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="15"
+        android:contentDescription="@string/album_player"
         android:scaleType="fitXY"
         android:src="@drawable/album_standard" />
 
@@ -30,15 +40,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:text="...Song title and author..."
-        android:textAppearance="?android:textAppearanceLarge"
-        android:textColor="@color/colorPrimaryDark"
-        android:textStyle="bold"
-        android:singleLine="true"
         android:ellipsize="marquee"
         android:marqueeRepeatLimit="marquee_forever"
         android:scrollHorizontally="true"
-        />
+        android:singleLine="true"
+        android:text="@string/default_playertext"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold" />
 
 
     <LinearLayout
@@ -51,11 +60,13 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/prev"
             android:src="@drawable/ic_prev" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/play"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:src="@drawable/ic_pause" />
@@ -63,6 +74,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/next"
             android:src="@drawable/ic_next" />
 
     </LinearLayout>

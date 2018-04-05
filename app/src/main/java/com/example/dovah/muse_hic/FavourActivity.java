@@ -3,6 +3,7 @@ package com.example.dovah.muse_hic;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -11,34 +12,24 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 
-public class FavourActivity extends AppCompatActivity {
+public class FavourActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.song_list);
 
+        Toolbar toolbarFavour = findViewById(R.id.status_toolbar);
+        setSupportActionBar(toolbarFavour);
+
         //Add Listener for the toolbar buttons
-        //#1 Recent Buttons
-        ImageView recent = findViewById(R.id.recents);
-        recent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(FavourActivity.this, RecentActivity.class);
-                startActivity(i);
-            }
-        });
-        //#2 Playlist Button
-        ImageView playlist = findViewById(R.id.playlists);
-        playlist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(FavourActivity.this, PlaylistActivity.class);
-                startActivity(i);
-            }
-        });
+        ImageView recentButton = findViewById(R.id.recents);
+        recentButton.setOnClickListener(this);
+        ImageView playlistButton = findViewById(R.id.playlists);
+        playlistButton.setOnClickListener(this);
+
 
         //Create and populate an array of Song Objects
-        ArrayList<Song> songs = new ArrayList<Song>();
+        ArrayList<Song> songs = new ArrayList<>();
         songs.add(new Song("Numb", "Linkin Park", R.drawable.album_meteora));
         songs.add(new Song("Six feet under", "The Weeknd", R.drawable.album_starboy));
         songs.add(new Song("Farewell To The Fairground", "White Lies", R.drawable.album_tolose));
@@ -60,12 +51,27 @@ public class FavourActivity extends AppCompatActivity {
                 String title = listItem.getTitle();
                 String author = listItem.getAuthor();
                 int album = listItem.getAlbum_src();
-                Intent i = new Intent(FavourActivity.this, PlayerActivity.class);
-                i.putExtra("int_value", album);
-                i.putExtra("String_title", title);
-                i.putExtra("String_author", author);
-                startActivity(i);
+                Intent playerIntent = new Intent(FavourActivity.this, PlayerActivity.class);
+                playerIntent.putExtra("int_value", album);
+                playerIntent.putExtra("String_title", title);
+                playerIntent.putExtra("String_author", author);
+                startActivity(playerIntent);
             }
         });
+    }
+
+    //Explain what to do when toolbar buttons are pressed
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.recents:
+                Intent intentRecent = new Intent(FavourActivity.this, RecentActivity.class);
+                startActivity(intentRecent);
+                break;
+            case R.id.playlists:
+                Intent intentPlaylist = new Intent(FavourActivity.this, PlaylistActivity.class);
+                startActivity(intentPlaylist);
+
+        }
     }
 }

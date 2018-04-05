@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:orientation="vertical"
+    tools:context="com.example.dovah.muse_hic.RecentActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/status_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:titleTextColor="#ffffff" />
 
     <LinearLayout
         android:id="@+id/toolbar"
@@ -21,6 +33,7 @@
             style="@style/topButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/recent_ico"
             android:src="@drawable/ic_recent" />
 
         <ImageView
@@ -28,6 +41,7 @@
             style="@style/topButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/fav_ico"
             android:src="@drawable/ic_favorite" />
 
         <ImageView
@@ -35,6 +49,7 @@
             style="@style/topButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/playlist_ico"
             android:src="@drawable/ic_playlist" />
 
     </LinearLayout>
@@ -44,11 +59,10 @@
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:ellipsize="end"
         android:orientation="vertical"
         android:singleLine="true"
         android:stretchMode="columnWidth"
 
         />
-</RelativeLayout>
+</LinearLayout>

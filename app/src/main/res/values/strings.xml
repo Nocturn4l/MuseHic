@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">MuseHic</string>
+    <string name="fav_activity">Favourites</string>
+    <string name="playlist_activity">Playlist</string>
+    <string name="default_playertext">Song title and author</string>
+    <string name="album_player">Album Cover</string>
+    <string name="prev">Previous Button</string>
+    <string name="play">Play Button</string>
+    <string name="next">Next Button</string>
+    <string name="fav_ico">Favourites Button</string>
+    <string name="recent_ico">Recents Button</string>
+    <string name="playlist_ico">Playlist Button</string>
 </resources>
